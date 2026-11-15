@@ -1,0 +1,32 @@
+:root{--surface:rgba(255,253,248,.52);--card-fill:transparent;--accent-readable:#A74032}
+:root[data-theme=dark]{--paper:#12171A;--paper-deep:#1B2226;--ink:#EAE4D2;--ink-soft:#B8B29F;--forest:#86AE91;--sage:#26332B;--line:rgba(234,228,210,.20);--seal:#DF8C76;--surface:rgba(255,255,255,.025);--card-fill:rgba(255,255,255,.035);--accent-readable:#EEAA92;color-scheme:dark}
+html,body,.bar,.panel,.panel-actions,.tools,.demo-bar,.chip,.card,dialog,.field,.prune,.theme-choice,.nav button{transition:background-color .42s ease,color .32s ease,border-color .32s ease,box-shadow .25s ease}
+body{background-color:var(--paper)}.panel{background:var(--surface)}.bar,.panel-actions{background:var(--paper)}
+.tools{background:var(--paper)}.eyebrow{color:var(--accent-readable)}.eyebrow::before{background:var(--accent-readable)}
+:root[data-theme=dark] .stage{background:none}
+:root[data-theme=dark] .caption p{color:#FFF3DE;background:linear-gradient(transparent 84%,rgba(199,161,107,.55) 84%),rgba(18,23,26,.92);text-shadow:0 1px 2px rgba(0,0,0,.55);border-radius:3px}
+:root[data-theme=dark] .chip,:root[data-theme=dark] .prune,:root[data-theme=dark] .card{background:var(--card-fill)}
+:root[data-theme=dark] .card:hover{background:rgba(255,255,255,.08)}
+:root[data-theme=dark] .btn:not(.line),:root[data-theme=dark] .panel-actions .btn:first-child,:root[data-theme=dark] .tool[aria-pressed=true],:root[data-theme=dark] .switch[aria-pressed=true]{color:#12171A}
+:root[data-theme=dark] .btn:not(.line):hover{background:#A1C6AB}
+:root[data-theme=dark] .prune [data-act=cut]:not(:disabled){background:#B75442;border-color:#B75442;color:#FFF3E8}
+:root[data-theme=dark] .prune [data-act=cut]:not(:disabled):hover{background:#9A4234}
+.appearance{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0}
+.theme-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.theme-choice{min-height:96px;position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:16px;border:1px solid var(--line);border-radius:12px;cursor:pointer;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.theme-choice.selected{border-color:var(--forest);box-shadow:inset 0 0 0 1px var(--forest);background:color-mix(in srgb,var(--forest) 9%,transparent)}
+.theme-choice:has(input:focus-visible){outline:3px solid var(--forest);outline-offset:3px}
+.theme-choice input{appearance:none;width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:5px;display:grid;place-content:center;margin:0;transition:background-color .18s,border-color .18s}
+.theme-choice input:checked{background:var(--forest);border-color:var(--forest)}.theme-choice input:checked::before{content:'✓';font:16px sans-serif;color:var(--paper)}
+:root[data-theme=dark] .theme-choice input:checked::before{color:#12171A}
+.theme-choice input:disabled{opacity:.65}.theme-choices.automatic{opacity:.75}.theme-choices.automatic .theme-choice{cursor:default}
+.theme-swatch{grid-column:1 / -1;height:40px;border-radius:6px;border:1px solid #8B816955;position:relative;overflow:hidden}
+.theme-swatch::after{content:'';position:absolute;left:20%;right:20%;height:2px;top:50%;background:#9B8063;transform:rotate(-9deg)}
+.light-swatch{background:linear-gradient(120deg,#F7F3EA,#E1E5D8)}.dark-swatch{background:linear-gradient(120deg,#12171A,#26332B)}
+.solar-switch{min-width:72px;min-height:60px;padding:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex:none}
+.switch-track{width:48px;height:28px;padding:3px;border-radius:20px;background:var(--line);border:1px solid var(--ink-soft);transition:background-color .25s,border-color .25s}
+.switch-track>span{display:block;width:20px;height:20px;border-radius:50%;background:var(--ink-soft);transform:translateX(0);transition:transform .25s cubic-bezier(.2,.75,.25,1),background-color .25s}
+.solar-switch[aria-checked=true] .switch-track{background:var(--forest);border-color:var(--forest)}.solar-switch[aria-checked=true] .switch-track>span{transform:translateX(20px);background:var(--paper)}
+.switch-label{font-size:12px;color:var(--ink-soft)}.appearance #themeStatus{min-height:44px}.appearance .setting-row{border:0;padding:0}
+@media(max-width:440px){.theme-choice{padding:12px;font-size:13px}.theme-choices{gap:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
